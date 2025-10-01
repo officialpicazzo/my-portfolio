@@ -1,75 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects - Picazzo Tech Solutions</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Picazzo Tech Solutions | Projects</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+  </script>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="font-sans bg-gray-100 text-gray-900">
 
   <!-- Navbar -->
-  <nav class="bg-blue-600 p-4 text-white flex justify-between items-center">
-    <h1 class="text-lg font-bold">Picazzo Tech Solutions</h1>
-    <ul class="flex space-x-4">
-      <li><a href="index.html" class="hover:underline">Home</a></li>
-      <li><a href="about.html" class="hover:underline">About</a></li>
-      <li><a href="services.html" class="hover:underline">Services</a></li>
-      <li><a href="skills.html" class="hover:underline">Skills</a></li>
-      <li><a href="projects.html" class="font-semibold underline">Projects</a></li>
-      <li><a href="contact.html" class="hover:underline">Contact</a></li>
+  <header class="bg-blue-900 text-white shadow">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="text-xl font-bold">Picazzo Tech Solutions</h1>
+
+      <!-- Hamburger button for mobile -->
+      <button class="md:hidden text-white focus:outline-none" onclick="toggleMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex space-x-6 font-medium text-center">
+        <li><a href="index.html" class="hover:text-teal-400">Home</a></li>
+        <li><a href="about.html" class="hover:text-teal-400">About</a></li>
+        <li><a href="services.html" class="hover:text-teal-400">Services</a></li>
+        <li><a href="skills.html" class="hover:text-teal-400">Skills</a></li>
+        <li><a href="projects.html" class="hover:text-teal-400 font-semibold underline">Projects</a></li>
+        <li><a href="contact.html" class="hover:text-teal-400">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Mobile dropdown menu -->
+    <ul id="mobile-menu" class="md:hidden hidden bg-blue-800 px-6 py-2 rounded-b-lg space-y-2 text-center">
+      <li><a href="index.html" class="block hover:text-teal-400">Home</a></li>
+      <li><a href="about.html" class="block hover:text-teal-400">About</a></li>
+      <li><a href="services.html" class="block hover:text-teal-400">Services</a></li>
+      <li><a href="skills.html" class="block hover:text-teal-400">Skills</a></li>
+      <li><a href="projects.html" class="block hover:text-teal-400 font-semibold underline">Projects</a></li>
+      <li><a href="contact.html" class="block hover:text-teal-400">Contact</a></li>
     </ul>
-  </nav>
+  </header>
 
-  <!-- Projects Section -->
-  <section class="p-6">
-    <h2 class="text-3xl font-bold text-center mb-6">My Projects</h2>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-800 to-teal-600 text-white py-16 text-center px-4">
+    <div class="container mx-auto">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">My Projects</h2>
+      <p class="text-base sm:text-lg md:text-xl mb-6">A showcase of web apps and tools built with modern technologies.</p>
+    </div>
+  </section>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <!-- Projects Grid -->
+  <section class="py-12 container mx-auto px-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
       <!-- Task Manager -->
-    <div class="relative bg-cover bg-center rounded-xl p-6 shadow-lg text-white"
-     style="background-image: url('image/taske\ \(1\).jpg');">
-
-  <!-- Overlay for readability -->
-  <div class="absolute inset-0 bg-black/40 rounded-xl"></div>
-
-  <!-- Content on top of image -->
-  <div class="relative z-10">
-    <h3 class="text-xl font-semibold mb-2">Task Manager ✅</h3>
-    <p class="mb-4">A simple app to manage daily tasks — add, edit, delete, and mark complete. Built with Tailwind + JS and LocalStorage.</p>
-    
-    <!-- Button -->
-    <a href="projects/task-manager.html" target="_blank"
-       class="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md transition">
-       View Project
-    </a>
-  </div>
-</div>
-
-
-      <!-- Calculator -->
-     <div class="relative bg-cover bg-center rounded-xl p-6 shadow-lg text-white"
-           style="background-image: url('image/taske\ \(2\).jpg');">
+      <div class="relative bg-cover bg-center rounded-xl p-6 shadow-lg text-white"
+           style="background-image: url('image/taske (1).jpg');">
         <div class="absolute inset-0 bg-black/40 rounded-xl"></div>
         <div class="relative z-10">
-          <h3 class="text-xl font-semibold mb-2">Calculator 🧮</h3>
-          <p class="mb-4">A clean and responsive calculator built with Tailwind + JavaScript.</p>
-          <a href="projects/calculator.html" target="_blank"
-             class="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md transition">
+          <h3 class="text-xl md:text-2xl font-semibold mb-2">Task Manager ✅</h3>
+          <p class="mb-4 text-sm md:text-base">Manage daily tasks — add, edit, delete, mark complete. Tailwind + JS + LocalStorage.</p>
+          <a href="projects/task-manager.html" target="_blank"
+             class="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md transition text-sm md:text-base">
              View Project
           </a>
         </div>
       </div>
 
+      <!-- Calculator -->
       <div class="relative bg-cover bg-center rounded-xl p-6 shadow-lg text-white"
-           style="background-image: url('image/taske\ \(7\).jpg');">
+           style="background-image: url('image/taske (2).jpg');">
         <div class="absolute inset-0 bg-black/40 rounded-xl"></div>
         <div class="relative z-10">
-          <h3 class="text-xl font-semibold mb-2">Weather App ⛅</h3>
-          <p class="mb-4">Check real-time weather info for any city. Built with Tailwind + JS (OpenWeather API).</p>
+          <h3 class="text-xl md:text-2xl font-semibold mb-2">Calculator 🧮</h3>
+          <p class="mb-4 text-sm md:text-base">Responsive calculator built with Tailwind + JS.</p>
+          <a href="projects/calculator.html" target="_blank"
+             class="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md transition text-sm md:text-base">
+             View Project
+          </a>
+        </div>
+      </div>
+
+      <!-- Weather App -->
+      <div class="relative bg-cover bg-center rounded-xl p-6 shadow-lg text-white"
+           style="background-image: url('image/taske (7).jpg');">
+        <div class="absolute inset-0 bg-black/40 rounded-xl"></div>
+        <div class="relative z-10">
+          <h3 class="text-xl md:text-2xl font-semibold mb-2">Weather App ⛅</h3>
+          <p class="mb-4 text-sm md:text-base">Real-time weather info for any city. Tailwind + JS (OpenWeather API).</p>
           <a href="projects/weather-app.html" target="_blank"
-             class="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md transition">
+             class="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md transition text-sm md:text-base">
              View Project
           </a>
         </div>
@@ -77,50 +106,51 @@
 
       <!-- Quote Generator -->
       <div class="relative bg-cover bg-center rounded-xl p-6 shadow-lg text-white"
-           style="background-image: url('image/taske\ \(3\).jpg');">
+           style="background-image: url('image/taske (3).jpg');">
         <div class="absolute inset-0 bg-black/40 rounded-xl"></div>
         <div class="relative z-10">
-          <h3 class="text-xl font-semibold mb-2">Quote Generator ✨</h3>
-          <p class="mb-4">Get random motivational quotes instantly. Built with Tailwind + JS API fetch.</p>
+          <h3 class="text-xl md:text-2xl font-semibold mb-2">Quote Generator ✨</h3>
+          <p class="mb-4 text-sm md:text-base">Random motivational quotes. Tailwind + JS API fetch.</p>
           <a href="projects/quote-generator.html" target="_blank"
-             class="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md transition">
+             class="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md transition text-sm md:text-base">
              View Project
           </a>
         </div>
       </div>
 
-     <!-- Jokes App -->
+      <!-- Jokes App -->
       <div class="relative bg-cover bg-center rounded-xl p-6 shadow-lg text-white"
-           style="background-image: url('image/taske\ \(4\).jpg');">
+           style="background-image: url('image/taske (4).jpg');">
         <div class="absolute inset-0 bg-black/40 rounded-xl"></div>
         <div class="relative z-10">
-          <h3 class="text-xl font-semibold mb-2">Jokes App 😂</h3>
-          <p class="mb-4">Random jokes fetched from an API for endless fun. Built with Tailwind + JS.</p>
+          <h3 class="text-xl md:text-2xl font-semibold mb-2">Jokes App 😂</h3>
+          <p class="mb-4 text-sm md:text-base">Random jokes fetched from an API. Tailwind + JS.</p>
           <a href="projects/joke-app.html" target="_blank"
-             class="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md transition">
+             class="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md transition text-sm md:text-base">
              View Project
           </a>
         </div>
       </div>
 
-      <!-- Voting Site -->
+      <!-- Voting System -->
       <div class="relative bg-cover bg-center rounded-xl p-6 shadow-lg text-white"
-           style="background-image: url('image/taske\ \(6\).jpg');">
+           style="background-image: url('image/taske (6).jpg');">
         <div class="absolute inset-0 bg-black/40 rounded-xl"></div>
         <div class="relative z-10">
-          <h3 class="text-xl font-semibold mb-2">Voting System 🗳️</h3>
-          <p class="mb-4">A simple Crawford University SRC voting system prototype. Built with Tailwind + JS.</p>
+          <h3 class="text-xl md:text-2xl font-semibold mb-2">Voting System 🗳️</h3>
+          <p class="mb-4 text-sm md:text-base">Crawford University SRC voting system prototype. Tailwind + JS.</p>
           <a href="projects/voting.html" target="_blank"
-             class="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md transition">
+             class="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md transition text-sm md:text-base">
              View Project
           </a>
         </div>
       </div>
+
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-blue-600 text-white text-center p-4">
+  <footer class="bg-blue-900 text-white text-center py-6 mt-12">
     <p>&copy; 2025 Picazzo Tech Solutions | All Rights Reserved</p>
   </footer>
 
