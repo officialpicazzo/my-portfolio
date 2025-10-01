@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peter's Portfolio | About</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- Navbar -->
+  <header class="bg-gray-900 text-white shadow">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="text-2xl font-bold">Peter's Portfolio</h1>
+      <!-- Hamburger button for mobile -->
+      <button class="md:hidden text-white focus:outline-none" onclick="toggleMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex space-x-6 font-medium text-center">
+        <li><a href="index.html" class="hover:text-teal-400">Home</a></li>
+        <li><a href="about.html" class="text-teal-400">About</a></li>
+        <li><a href="project.html" class="hover:text-teal-400">Projects</a></li>
+        <li><a href="skills.html" class="hover:text-teal-400">Skills</a></li>
+        <li><a href="community.html" class="hover:text-teal-400">Community</a></li>
+        <li><a href="contact.html" class="hover:text-teal-400">Contact</a></li>
+      </ul>
+    </div>
+    <!-- Mobile Menu -->
+    <ul id="mobile-menu" class="md:hidden hidden bg-gray-800 py-4 space-y-2 text-center">
+      <li><a href="index.html" class="block hover:text-teal-400">Home</a></li>
+      <li><a href="about.html" class="block text-teal-400">About</a></li>
+      <li><a href="project.html" class="block hover:text-teal-400">Projects</a></li>
+      <li><a href="skills.html" class="block hover:text-teal-400">Skills</a></li>
+      <li><a href="community.html" class="block hover:text-teal-400">Community</a></li>
+      <li><a href="contact.html" class="block hover:text-teal-400">Contact</a></li>
+    </ul>
+  </header>
+
+  <!-- About Section -->
+  <section class="container mx-auto px-6 py-16">
+    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-10">About Me</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <!-- Image -->
+      <div class="flex justify-center">
+        <img src="image/photo.jpg" alt="Your Photo" class="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 object-cover rounded-2xl shadow-lg">
+      </div>
+      <!-- Text -->
+      <div>
+        <h3 class="text-2xl sm:text-3xl font-semibold mb-4">Hi, I'm Peter 👋</h3>
+        <p class="mb-4 text-sm sm:text-base md:text-lg">
+          I am a passionate <span class="font-semibold">Fullstack Developer</span>, 
+          <span class="font-semibold">AI/ML Enthusiast</span>, and the founder of 
+          <span class="font-semibold">Tech Wiz Community</span>.  
+          I enjoy building innovative projects, learning cutting-edge technologies, 
+          and collaborating with like-minded people.
+        </p>
+        <p class="mb-4 text-sm sm:text-base md:text-lg">
+          My mission is to <span class="italic">empower others through technology</span>, 
+          contribute to real-world problem solving, and help communities grow 
+          in the digital age.
+        </p>
+        <a href="project.html" class="inline-block mt-4 bg-teal-500 text-white px-6 py-3 rounded-lg shadow hover:bg-teal-600">
+          See My Projects
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 text-center py-6">
+    <p>&copy; 2025 Peter's Portfolio | Built with ❤️ using Tailwind CSS</p>
+  </footer>
+
+</body>
+</html>

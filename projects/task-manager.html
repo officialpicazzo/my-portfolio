@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager ✅</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-100 to-gray-300 min-h-screen flex items-center justify-center p-4">
+
+  <div class="bg-white shadow-2xl rounded-2xl p-4 sm:p-6 w-full max-w-md">
+    <h1 class="text-2xl sm:text-3xl font-bold text-center mb-6">Task Manager ✅</h1>
+
+    <!-- Input -->
+    <div class="flex flex-col sm:flex-row mb-4 gap-2">
+      <input id="taskInput" type="text" placeholder="Enter a task..."
+        class="flex-1 px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 text-sm sm:text-base" />
+      <button onclick="addTask()"
+        class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-xl hover:bg-blue-600 transition text-sm sm:text-base">
+        Add
+      </button>
+    </div>
+
+    <!-- Task List -->
+    <ul id="taskList" class="space-y-2"></ul>
+  </div>
+
+  <script>
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+    function saveTasks() {
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+
+    function renderTasks() {
+      const taskList = document.getElementById("taskList");
+      taskList.innerHTML = "";
+
+      tasks.forEach((task, index) => {
+        const li = document.createElement("li");
+        li.className = "flex flex-col sm:flex-row items-center justify-between bg-gray-100 p-3 rounded-xl shadow";
+
+        // Task text
+        const span = document.createElement("span");
+        span.textContent = task.text;
+        span.className = `flex-1 cursor-pointer mb-2 sm:mb-0 ${task.completed ? "line-through text-gray-500" : ""}`;
+        span.onclick = () => toggleComplete(index);
+
+        // Edit button
+        const editBtn = document.createElement("button");
+        editBtn.textContent = "✏️";
+        editBtn.className = "ml-2 text-blue-500 hover:text-blue-700";
+        editBtn.onclick = () => editTask(index);
+
+        // Delete button
+        const delBtn = document.createElement("button");
+        delBtn.textContent = "❌";
+        delBtn.className = "ml-2 text-red-500 hover:text-red-700";
+        delBtn.onclick = () => deleteTask(index);
+
+        li.appendChild(span);
+        li.appendChild(editBtn);
+        li.appendChild(delBtn);
+        taskList.appendChild(li);
+      });
+    }
+
+    function addTask() {
+      const input = document.getElementById("taskInput");
+      const taskText = input.value.trim();
+      if (taskText) {
+        tasks.push({ text: taskText, completed: false });
+        input.value = "";
+        saveTasks();
+        renderTasks();
+      }
+    }
+
+    function editTask(index) {
+      const newTask = prompt("Edit task:", tasks[index].text);
+      if (newTask !== null && newTask.trim() !== "") {
+        tasks[index].text = newTask.trim();
+        saveTasks();
+        renderTasks();
+      }
+    }
+
+    function deleteTask(index) {
+      tasks.splice(index, 1);
+      saveTasks();
+      renderTasks();
+    }
+
+    function toggleComplete(index) {
+      tasks[index].completed = !tasks[index].completed;
+      saveTasks();
+      renderTasks();
+    }
+
+    // Render on load
+    renderTasks();
+  </script>
+
+</body>
+</html>

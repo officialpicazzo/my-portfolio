@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crawford SRC Voting Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-100 to-gray-300 min-h-screen p-6">
+
+  <!-- Header -->
+  <header class="flex flex-col sm:flex-row items-center justify-between bg-white p-4 rounded-xl shadow mb-6">
+    <div class="flex items-center gap-3">
+      <img src="image/download (1).jpeg" alt="SRC Logo" class="w-12 h-12 rounded-full shadow">
+      <h1 class="text-xl sm:text-2xl font-bold text-gray-700">Crawford University - SRC Voting Portal</h1>
+    </div>
+    <p class="text-sm text-gray-500 mt-2 sm:mt-0">Vote for your preferred candidates ✨</p>
+  </header>
+
+  <!-- Election Container -->
+  <main class="max-w-4xl mx-auto bg-white p-6 rounded-2xl shadow-2xl">
+    <h2 class="text-2xl font-semibold text-center mb-6 text-gray-700">Elections 2025</h2>
+    
+    <div id="electionContainer" class="space-y-8"></div>
+  </main>
+
+  <script>
+    const elections = {
+      "President": ["John Doe", "Mary Johnson"],
+      "Vice President": ["Samuel Okoro", "Aisha Bello"],
+      "General Secretary": ["David Smith", "Grace Olamide"]
+    };
+
+    // Load votes from localStorage
+    let votes = JSON.parse(localStorage.getItem("votes")) || {};
+
+    function renderElections() {
+      const container = document.getElementById("electionContainer");
+      container.innerHTML = "";
+
+      Object.keys(elections).forEach(position => {
+        const candidates = elections[position];
+
+        const section = document.createElement("section");
+        section.className = "border p-4 rounded-xl shadow";
+
+        const heading = document.createElement("h3");
+        heading.className = "text-xl font-semibold mb-4 text-blue-600";
+        heading.textContent = position;
+        section.appendChild(heading);
+
+        const candidateList = document.createElement("div");
+        candidateList.className = "grid gap-4 sm:grid-cols-2";
+
+        candidates.forEach(candidate => {
+          const card = document.createElement("div");
+          card.className = "flex flex-col items-center justify-between bg-gray-100 p-4 rounded-xl shadow hover:shadow-lg transition";
+
+          const name = document.createElement("p");
+          name.className = "font-medium text-gray-700 mb-2";
+          name.textContent = candidate;
+
+          const voteCount = document.createElement("p");
+          voteCount.className = "text-sm text-gray-500 mb-2";
+          voteCount.textContent = `Votes: ${votes[position]?.[candidate] || 0}`;
+
+          const voteBtn = document.createElement("button");
+          voteBtn.textContent = "Vote";
+          voteBtn.className = "px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:opacity-50";
+
+          // Disable if already voted for this position
+          if (votes[position]?.voted) {
+            voteBtn.disabled = true;
+          }
+
+          voteBtn.onclick = () => {
+            if (!votes[position]) votes[position] = {};
+            if (!votes[position][candidate]) votes[position][candidate] = 0;
+
+            votes[position][candidate] += 1;
+            votes[position].voted = true;
+
+            localStorage.setItem("votes", JSON.stringify(votes));
+            renderElections();
+          };
+
+          card.appendChild(name);
+          card.appendChild(voteCount);
+          card.appendChild(voteBtn);
+          candidateList.appendChild(card);
+        });
+
+        section.appendChild(candidateList);
+        container.appendChild(section);
+      });
+    }
+
+    renderElections();
+  </script>
+</body>
+</html>

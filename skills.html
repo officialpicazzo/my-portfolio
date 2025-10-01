@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peter's Portfolio | Skills</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- Navbar -->
+ <header class="bg-blue-900 text-white shadow">
+  <div class="container mx-auto flex justify-between items-center py-4 px-6">
+    <h1 class="text-xl font-bold">Picazzo Tech Solutions</h1>
+
+    <!-- Hamburger button -->
+    <button class="md:hidden text-white focus:outline-none" onclick="toggleMenu()">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex space-x-6 font-medium text-center">
+      <li><a href="index.html" class="hover:text-teal-400">Home</a></li>
+      <li><a href="about.html" class="hover:text-teal-400">About</a></li>
+      <li><a href="services.html" class="hover:text-teal-400">Services</a></li>
+      <li><a href="skills.html" class="hover:text-teal-400">Skills</a></li>
+      <li><a href="community.html" class="hover:text-teal-400">Community</a></li>
+      <li><a href="contact.html" class="hover:text-teal-400">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Mobile dropdown menu (partial) -->
+  <ul id="mobile-menu" class="md:hidden hidden bg-blue-800 px-6 py-2 rounded-b-lg space-y-2 text-center">
+    <li><a href="index.html" class="block hover:text-teal-400">Home</a></li>
+    <li><a href="about.html" class="block hover:text-teal-400">About</a></li>
+    <li><a href="services.html" class="block hover:text-teal-400">Services</a></li>
+    <li><a href="skills.html" class="block hover:text-teal-400">Skills</a></li>
+    <li><a href="community.html" class="block hover:text-teal-400">Community</a></li>
+    <li><a href="contact.html" class="block hover:text-teal-400">Contact</a></li>
+  </ul>
+   
+</header>
+  <!-- Skills Section -->
+  <section class="container mx-auto px-6 py-16">
+    <h2 class="text-4xl font-bold text-center mb-10">My Skills</h2>
+
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <!-- Skill Card -->
+      <div class="bg-white rounded-xl shadow p-6 hover:shadow-lg">
+        <h3 class="text-xl font-semibold mb-3 text-teal-600">Web Development</h3>
+        <p>Building responsive, user-friendly websites and applications using HTML, CSS, JavaScript, and modern frameworks like React & Tailwind CSS.</p>
+      </div>
+
+      <div class="bg-white rounded-xl shadow p-6 hover:shadow-lg">
+        <h3 class="text-xl font-semibold mb-3 text-teal-600">AI & Machine Learning</h3>
+        <p>Designing intelligent systems, exploring NLP, and working on AI-powered applications that enhance user experiences.</p>
+      </div>
+
+      <div class="bg-white rounded-xl shadow p-6 hover:shadow-lg">
+        <h3 class="text-xl font-semibold mb-3 text-teal-600">Cybersecurity</h3>
+        <p>Passionate about protecting digital systems, ensuring data privacy, and securing online platforms from threats.</p>
+      </div>
+
+      <div class="bg-white rounded-xl shadow p-6 hover:shadow-lg">
+        <h3 class="text-xl font-semibold mb-3 text-teal-600">Database Management</h3>
+        <p>Experience in SQL and database systems for organizing, storing, and managing structured data efficiently.</p>
+      </div>
+
+      <div class="bg-white rounded-xl shadow p-6 hover:shadow-lg">
+        <h3 class="text-xl font-semibold mb-3 text-teal-600">Leadership & Teamwork</h3>
+        <p>Leading community-driven projects like Tech Wiz, mentoring peers, and fostering collaboration for success.</p>
+      </div>
+
+      <div class="bg-white rounded-xl shadow p-6 hover:shadow-lg">
+        <h3 class="text-xl font-semibold mb-3 text-teal-600">Problem-Solving</h3>
+        <p>Strong analytical mindset with the ability to break down complex challenges into practical solutions.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 text-center py-6">
+    <p>&copy; 2025 Peter's Portfolio | Built with ❤️ using Tailwind CSS</p>
+  </footer>
+
+</body>
+</html>
